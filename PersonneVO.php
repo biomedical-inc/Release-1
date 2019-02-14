@@ -15,7 +15,7 @@ class PersonneVO{
 		return $this->prenom;
 	}
 	public function setPrenom($id){
-		$this->id = $prenom;
+		$this->id = $id;
 	}
 	public function getNom(){
 		return $this->nom;
