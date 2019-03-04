@@ -29,7 +29,7 @@
 			$utilisateur.setPressionSys(personne.getPressionSys());
 			$utilisateur.setPressionDiaSys(personne.getPressionDiaSys());
 			$utilisateur.setPoulCardiaque(personne.getPoulCardiaque());
-			$dao.CreerPersonne($utilisateur)
+			$dao.CreerPersonne($utilisateur);
 		}
 	}
 ?>
