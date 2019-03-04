@@ -3,7 +3,7 @@
 	include(../PersonneVO.php);
 	
 	protected $dao = new PersonneDAO();
-	protected $utilisateur = new PersonneVO()
+	protected $utilisateur = new PersonneVO();
 	
 	public function Synchroniser(PersonneVO personne){
 		//si la personne existe insere son info
