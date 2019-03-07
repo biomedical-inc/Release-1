@@ -19,7 +19,7 @@ class ControleurDAO{
 	}
 	
 	public function gestionConnection($PersonneVO p){
-		$query = "Select id, utilisateur, motDePasse, droit  FROM  utilisateurs WHERE utilisateur = '".$user."' and motDePasse = '".$pw."'";
+		$query = "Select id, utilisateur, motDePasse, droit  FROM  utilisateurs WHERE utilisateur = '".$user."' and motDePasse = '".$pw."'";
 		$prep = $this->pdo->prepare($query);
 		$prep->execute();
 		$result = $prep->fetch(PDO::FETCH_OBJ);
@@ -35,5 +35,22 @@ class ControleurDAO{
 		}
 		return $a;
 	}
+	//classe pour recuperer le prenom,nom,id,password et date de naissance
+	//puis retourne une personne
+	$utilisateurRecuperer = new PersonneVO();
+	public function getPersonne(){
+		$query = "";
+		$prep = $this->pdo->prepare($query);
+		$prep->execute();
+		$result = $prep->fetch(PDO::FETCH_OBJ);
+		
+		if(!empty($result)){
+			$utilisateurRecuperer->setId($result->id);
+			$utilisateurRecuperer->setPassword($result->motDePasse);
+		}
+		return $utilisateurRecuperer;
+	}
+	public function Synchroniser(){}
+	public function CreerPersonne(){}
 }
 ?>

@@ -1,13 +1,13 @@
 <?php
-	include(../PersonneDAO.php);
+	include(../ControleurDAO.php);
 	include(../PersonneVO.php);
 	
-	protected $dao = new PersonneDAO();
+	protected $dao = new ControleurDAO();
 	protected $utilisateur = new PersonneVO();
 	
 	public function Synchroniser(PersonneVO personne){
 		//si la personne existe insere son info
-		if(personne.getId() == $dao.getPersonne(personne.getId())){
+		if(personne.getId() == $dao.getPersonne().getId()){
 		$utilisateur.setPrenom(personne.getPrenom());
 			$utilisateur.setNom(personne.getNom());
 			$utilisateur.setID(personne.getId());
