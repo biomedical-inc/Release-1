@@ -45,12 +45,56 @@ class ControleurDAO{
 		$result = $prep->fetch(PDO::FETCH_OBJ);
 		
 		if(!empty($result)){
-			$utilisateurRecuperer->setId($result->id);
-			$utilisateurRecuperer->setPassword($result->motDePasse);
+			$utilisateurRecuperer->setPrenom($result->prenom);
+			$utilisateurRecuperer->setNom($result->nom);
+			$utilisateurRecuperer->setID($result->id);
+			$utilisateurRecuperer->setPw($result->motDePasse);
+			$utilisateurRecuperer->setDateNaissance($result->dateNaissance);
+			return $utilisateurRecuperer;
 		}
-		return $utilisateurRecuperer;
+		else
+			return null;
 	}
-	public function Synchroniser(){}
-	public function CreerPersonne(){}
+	public function Synchroniser($PersonneVO p){
+		$query = "INSERT (LesValeurs) INTO (NomDeLaTable) VALUES (";
+		//si il y a eu des changements au prenom|nom|id|password|date de naissance On ajout leur requet de changements,
+		//sinon on insert La date de prise du test, La pression systolique, La pression diasystolique, Le pouls cardiaque
+		if(isset($utilisateurRecuperer)){
+			if($utilisateurRecuperer.getPrenom()!=$p.getPrenom()){
+				$query +=" ,";
+			}
+			if($utilisateurRecuperer.getNom()!=$p.getNom()){
+				$query +=" ,";
+			}
+			if($utilisateurRecuperer.getId()!=$p.getId()){
+				$query +=" ,";
+			}
+			if($utilisateurRecuperer.getPw()!=$p.getPw()){
+				$query +=" ,";
+			}
+			if($utilisateurRecuperer.getDateNaissance()!=$p.getDateNaissance()){
+				$query +=" ,";
+			}
+		}
+		$query +=$p.getDatePriseTest()+", "+$p.getPressionSys()+", "+$p.getPressionDiaSys()+", "+$p.getPoulCardiaque()+");";
+		
+		$prep = $this->pdo->prepare($query);
+		$prep->execute();
+		$result = $prep->fetch(PDO::FETCH_OBJ);
+		//ne se souvient pas si return est utiliser lors d'un insrt
+		return $result;
+	}
+	/*Une fonction utiliser seulement si insert nest pas utiliser quant on veut update une valeur
+	public function Update(){}*/
+	public function CreerPersonne($PersonneVO p){
+		$query = "INSERT (prenom,nom,id,motDePasse,dateNaissance,datePriseTest,pressionSys,pressionDiaSys,poulCardiaque)"
+		+" INTO (NomDeLaTable) VALUES ("+$p.getDatePriseTest()+", "+$p.getPressionSys()+", "+$p.getPressionDiaSys()+", "
+		+$p.getPoulCardiaque()+");";
+		$prep = $this->pdo->prepare($query);
+		$prep->execute();
+		$result = $prep->fetch(PDO::FETCH_OBJ);
+		//ne se souvient pas si return est utiliser lors d'un insrt
+		return $result;
+	}
 }
 ?>
