@@ -1,0 +1,43 @@
+
+fonction:
+class PersonneVO(
+				-	Le prénom
+				-	Le nom de famille
+				-	L'identifiant
+				-	Le pwd
+				-	La date de naissance
+				-	La date de prise du test
+				-	La pression systolique
+				-	La pression diasystolique
+				-	Le pouls cardiaque
+			);
+			
+page Accueil --> gestionConnection(PersonneVO): authentifier 
+				 
+page utilisateur --> -AffichageDonnée(PersonneVO);
+					 -PersonneDAO.Synchroniser(PersonneVO)
+
+page admin -->	-ajouter(PersonneVO)
+					-PersonneDAO.Ajouter(PersonneVO)
+				-supprimer(PersonneVO);
+					-PersonneDAO.Supprimer(PersonneVO)
+				-modifier(PersonneVO);
+					-PersonneDAO.MiseAJour(PersonneVO)
+				-Synchronisé(PersonneVO)
+					-PersonneDAO.Synchroniser(PersonneVO)
+
+
+Synchronisé(PersonneVO) --> -creer (id,pwd) si nouveau utilisateur
+							-synchroniser(PersonneVO)
+					
+Class PersonneDAO(
+					-	ConnexionBD()
+					- 	MiseAJour(PersonneVO)
+					-	Supprimer(PersonneVO)
+					- 	Ajouter(PersonneVO)
+					-	Synchroniser(PersonneVO)
+				)
+
+Release 1: 
+	-page d'accueil complétée
+	-page admin synchronisée
