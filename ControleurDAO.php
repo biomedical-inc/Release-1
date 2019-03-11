@@ -8,7 +8,7 @@ class ControleurDAO{
 	{
 		//Database admin nous donne les infos pour la connection
 		try {
-			$strConnection = 'mysql:host=localhost;dbname=';
+			$strConnection = 'mysql:host=localhost;dbname=bdd_biomedical';
 			$this->pdo = new PDO($strConnection, 'root', '');
 			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
@@ -36,7 +36,7 @@ class ControleurDAO{
 		return $a;
 	}
 	//classe pour recuperer le prenom,nom,id,password et date de naissance
-	//puis retourne une personne
+	//de la base de donner distant, puis retourne une personne
 	$utilisateurRecuperer = new PersonneVO();
 	public function getPersonne(){
 		$query = "";
@@ -47,9 +47,9 @@ class ControleurDAO{
 		if(!empty($result)){
 			$utilisateurRecuperer->setPrenom($result->prenom);
 			$utilisateurRecuperer->setNom($result->nom);
-			$utilisateurRecuperer->setID($result->id);
-			$utilisateurRecuperer->setPw($result->motDePasse);
-			$utilisateurRecuperer->setDateNaissance($result->dateNaissance);
+			$utilisateurRecuperer->setID($result->idClient);
+			$utilisateurRecuperer->setPw($result->password);
+			$utilisateurRecuperer->setDateNaissance($result->date de naissance);
 			return $utilisateurRecuperer;
 		}
 		else
@@ -88,8 +88,8 @@ class ControleurDAO{
 	public function Update(){}*/
 	public function CreerPersonne($PersonneVO p){
 		$query = "INSERT (prenom,nom,id,motDePasse,dateNaissance,datePriseTest,pressionSys,pressionDiaSys,poulCardiaque)"
-		+" INTO (NomDeLaTable) VALUES ("+$p.getDatePriseTest()+", "+$p.getPressionSys()+", "+$p.getPressionDiaSys()+", "
-		+$p.getPoulCardiaque()+");";
+		+" INTO (NomDeLaTable) VALUES ("+$p.getPrenom()+$p.getNom()+$p.getId()+$p.getPw()+$p.getDateNaissance()
+		+$p.getDatePriseTest()+", "+$p.getPressionSys()+", "+$p.getPressionDiaSys()+", "+$p.getPoulCardiaque()+");";
 		$prep = $this->pdo->prepare($query);
 		$prep->execute();
 		$result = $prep->fetch(PDO::FETCH_OBJ);
