@@ -11,7 +11,7 @@ tblClient
 	
 tblTest
 	idClient INT FK
-	datePriseTest DATETIME
+	dateDeTest DATETIME
 	pressionSys INT
 	pressionDia INT
 	poulsCardiaque INT
