@@ -1,19 +1,19 @@
 --Schema relationnel--
 	
 tblClient
-	idClient PK AI
+	idClient INT PK AI
 	adresse VARCHAR
 	identifiant VARCHAR NULL
-	password VARCHAR NULL
+	passwd VARCHAR NULL
 	prenom VARCHAR
 	nom VARCHAR
-	date de naissance DATE
+	dateDeNaissance DATETIME
 	
 tblTest
-	idClient FK
-	datePriseTest DATE
-	pressSys INT
-	pressDia INT
+	idClient INT FK
+	datePriseTest DATETIME
+	pressionSys INT
+	pressionDia INT
 	poulsCardiaque INT
 	
 -------------------------------------------------
@@ -21,16 +21,44 @@ tblTest
 --Requêtes--
 	
 requetes sql
-	mettre à jour l'Adresse d'un client
+	    ___________________________________
+	--/ mettre à jour l'Adresse d'un client \--
 	
-	update tblClient set adresse = nouveauAdresse where idClient = idClient;
+	update tblClient 
+	set adresse = nouveauAdresse 
+	where idClient = idClient;
+	
+	--\_____________________________________/--
+	
+	    ________________________________________________________________________
+	--/ get idClient d'un identifiant et password (input: identifiant, password) \--
+	
+	SELECT idClient 
+	FROM tblCLient 
+	WHERE identifiant = inputIden 
+	AND password = inputPasswrd;
+	
+	--\__________________________________________________________________________/--
+	
+	    ____________________________________________________
+	--/ get all test associé à un idClient (input: idClient) \--
+	
+	SELECT datePrisesText, pressSys, pressDia, poulsCardiaque
+	FROM tblTest
+	WHERE idClient = inputIdClient;
+	
+	--\______________________________________________________/--
+	
+	    ______________________________________________
+	--/ [SE] pour la commande configdate (input: date) \--
+	
+	UPDATE TOP 1 tblTest
+	SET datePriseTest = inputDate;
+	WHERE ...
+	
+	--\________________________________________________/--
 	
 	
-	retourner l'information du test (prenom, nom, date de naissance, date de prise de test, pression systolique, pression diasystolique, pouls cardiaque)
-	
-	select idClient from tblClient where prenom = prenom& and nom = nom&, dateDeNaissance = date&, 
-	select prenom, nom, dateDeNaissance from tblClient where idClient = id;
-	select dateDeTest, pressSys, pressDia, poulsCardiaque from tblTest where idClient = id;
 	
 -------------------------------------------------
 
@@ -44,8 +72,10 @@ procédures stockées
 	BEGIN
 		
 		SELECT AVG(poulsCardiaque)
-		FROM tblTest
-		WHERE age = CONVERT(NOW() - tblTest.dateDeTest, UNSIGNED);
+		FROM tblTest t
+		INNER JOIN tblClient c
+		ON t.idClient = c.idClient
+		WHERE age = CONVERT(tblTest.dateDeTest - tblClient.dateDeNaissance, UNSIGNED);
 		
 	END;
 	
@@ -75,7 +105,7 @@ procédures stockées
 Database embarque
 	tblTest
 		idClient
-		datePriseTest DATE
+		datePriseTest DATETIME
 		pressSys INT
 		pressDia INT
 		poulsCardiaque INT
