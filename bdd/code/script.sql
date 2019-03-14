@@ -28,7 +28,7 @@ CREATE TABLE `tblclient` (
   `identifiant` varchar(45) DEFAULT NULL,
   `prenom` varchar(45) DEFAULT NULL,
   `nom` varchar(45) DEFAULT NULL,
-  `dateDeNaissance` date DEFAULT NULL,
+  `dateDeNaissance` datetime DEFAULT NULL,
   `passwd` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idClient`),
   UNIQUE KEY `idClient_UNIQUE` (`idClient`)
@@ -65,7 +65,7 @@ DROP TABLE IF EXISTS `tbltest`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tbltest` (
   `idClient` int(10) unsigned NOT NULL,
-  `datePriseTest` date DEFAULT NULL,
+  `dateDeTest` datetime DEFAULT NULL,
   `pressionSys` int(11) DEFAULT NULL,
   `pressionDia` int(11) DEFAULT NULL,
   `poulsCardiaque` int(11) DEFAULT NULL
