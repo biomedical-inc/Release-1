@@ -19,6 +19,9 @@
 -- Table structure for table `tblclient`
 --
 
+CREATE SCHEMA IF NOT EXISTS `bdd_biomedicale` DEFAULT CHARACTER SET utf8 ;
+USE `bdd_biomedicale` ;
+
 DROP TABLE IF EXISTS `tblclient`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -26,10 +29,11 @@ CREATE TABLE `tblclient` (
   `idClient` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `adresse` varchar(45) DEFAULT NULL,
   `identifiant` varchar(45) DEFAULT NULL,
+  `passwd` varchar(45) DEFAULT NULL,
   `prenom` varchar(45) DEFAULT NULL,
   `nom` varchar(45) DEFAULT NULL,
   `dateDeNaissance` datetime DEFAULT NULL,
-  `passwd` varchar(45) DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idClient`),
   UNIQUE KEY `idClient_UNIQUE` (`idClient`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
