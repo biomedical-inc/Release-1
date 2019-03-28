@@ -1,0 +1,64 @@
+Voici comment les définition sont commit:
+Table #0                                                   -> énonce une nouvelle définition d'une table.
+  nom => "nomDeTableNA" 				   -> le nom de la table
+  définition => "Nom de la table sans acronyme"		   -> la signification du nom, autrement dit, le nom sans acronyme.
+  description => une petite définition pour cette table.   -> l'utilité de la table, son associativité, des détails bon à savoir.   
+                                                              
+  attribut1 => "nomDeAttribut"						-> nom de l'attribut.
+  type => "type" 							-> type de cette attribut (SELON LA BASE DE DONNÉE CHOISI)
+  définition => "nom de l'attribut"					-> la signification du nom, autrement dit, le nom sans acronyme.
+  description => définition de se que cette attribut accomplie.		-> l'utilité de cette attribut, son associativité, des détails bon à savoir.
+  
+  attribut2 => "attributNA"
+  type => "type" 
+  définition => "attribut sans acronyme"
+  description => Une petite définition.
+  ... 
+  
+Table #1
+  nom => "tbltest"
+  définition => "table test"
+  description => Cette table permet à enregistrer des tests des clients prises par le système embarqué. Un client peut avoir plusieurs tests
+  relation => tblClient 1..* tblTest
+  
+  attribut1 => "idClient"
+  type => "INT(11)"
+  définition => "identifiant d'un client"
+  description => Cette attribut est le clé étrangère de l'identifiant d'un client dans le table tblclient. Elle a pour effet de relier les
+                 deux tables ensembles.
+  
+  attribut2 => "dateDeTest"
+  type => "DATETIME" 
+  définition => "date de prise du test"
+  description => Cette attribut capture la date et le temps dont le test a été effectuer sur le client.
+  
+  attribut3 => "pressionSys"
+  type => "INT(11)" 
+  définition => "pression systolique"
+  description => Cette attribut capture la pression systolique du client capturer par le système embarqué lors de la prise du test.
+  
+  attribut4 => "pressionDia"
+  type => "INT(11)" 
+  définition => "pression diasystolique"
+  description => Cette attribut capture la pression diasystolique du client capturer par le système embarqué lors de la prise du test.
+  
+  attribut4 => "poulsCardiaque"
+  type => "INT(11)" 
+  définition => "pouls cardiaque"
+  description => Cette attribut capture le pouls cardiaque du client capturer par le système embarqué lors de la prise du test.
+  
+Fonction #1
+  nom => "poulsCardiaqueMoyenne"
+  Valeurs d'entrés
+  Valeur #1
+    nom => "age"
+    type => "INT(11)"
+    definition => "âge"
+    description => l'âge des clients 
+  type de retour => "INT(11)"
+  définition => "pouls cardiaque moyenne"
+  description => Cette fonction prend en entré un age et retourne la moyenne de la pouls cardiaque de tous les tests dont l'age du client
+                 est la même que celui entré.
+  
+  
+  
