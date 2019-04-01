@@ -63,7 +63,7 @@ DELIMITER ;
 
 CREATE TABLE `tblclient` (
   `idClient` int(10) UNSIGNED NOT NULL,
-  `type` varchar(45) NOT NULL,
+  `types` varchar(45) NOT NULL,
   `adresse` varchar(45) DEFAULT NULL,
   `identifiant` varchar(45) DEFAULT NULL,
   `prenom` varchar(45) DEFAULT NULL,
@@ -76,7 +76,7 @@ CREATE TABLE `tblclient` (
 -- Déchargement des données de la table `tblclient`
 --
 
-INSERT INTO `tblclient` (`idClient`, `type`, `adresse`, `identifiant`, `prenom`, `nom`, `dateDeNaissance`, `passwd`) VALUES
+INSERT INTO `tblclient` (`idClient`, `types`, `adresse`, `identifiant`, `prenom`, `nom`, `dateDeNaissance`, `passwd`) VALUES
 (1, 'admin', NULL, 'admin', NULL, NULL, NULL, 'admin'),
 (2, 'client', NULL, 'client', NULL, NULL, NULL, 'client');
 
