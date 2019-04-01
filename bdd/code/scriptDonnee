@@ -1,0 +1,70 @@
+USE `bdd_biomedicale`;
+
+-- Insertion des clients
+
+-- client 0
+insert into tblclient (prenom, nom, adresse, dateDeNaissance, type)
+values ("Cory", "MacNaught", "12, Rue Bank", "1998-05-24", "client");
+
+-- client 1
+insert into tblclient (prenom, nom, adresse, dateDeNaissance, type)
+values ("Jean-Philippe", "Araujo", "110, Rue Rideau", "1999-02-21", "client");
+
+-- client 2
+insert into tblclient (prenom, nom, adresse, dateDeNaissance, type)
+values ("Aurele", "Assogba", "32, Carsons Road", "1990-10-05", "client");
+
+-- client 3
+insert into tblclient (prenom, nom, adresse, dateDeNaissance, type)
+values ("Dany", "Lapointe", "10, Parkdale Avenue", "1975-07-04", "client");
+
+
+-- Insertion des tests
+
+-- tests pour client 0
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (0, "2019-04-01", 145, 100, 85);
+
+-- tests pour client 0
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (0, "2019-04-01", 135, 90, 80);
+
+-- tests pour client 0
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (0, "2019-04-01", 122, 85, 71);
+
+-- tests pour client 1
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (1, "2019-04-01", 134, 92, 85);
+
+-- tests pour client 1
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (1, "2019-04-01", 127, 89, 73);
+
+-- tests pour client 1
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (1, "2019-04-01", 119, 85, 78);
+
+-- tests pour client 2
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (2, "2019-04-01", 115, 75, 64);
+
+-- tests pour client 2
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (2, "2019-04-01", 120, 79, 72);
+
+-- tests pour client 2
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (2, "2019-04-01", 122, 80, 71);
+
+-- tests pour client 3
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (3, "2019-04-01", 132, 83, 80);
+
+-- tests pour client 3
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (3, "2019-04-01", 125, 82, 74);
+
+-- tests pour client 3
+insert into tbltest (idClient, dateDeTest, pressionSys, pressionDia, poulsCardiaque)
+values (3, "2019-04-01", 123, 81, 74);
