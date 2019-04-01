@@ -1,20 +1,3 @@
-Voici comment les définition sont commit:
-Table #0                                                   -> énonce une nouvelle définition d'une table.
-  nom => "nomDeTableNA" 				   -> le nom de la table
-  définition => "Nom de la table sans acronyme"		   -> la signification du nom, autrement dit, le nom sans acronyme.
-  description => une petite définition pour cette table.   -> l'utilité de la table, son associativité, des détails bon à savoir.   
-                                                              
-  attribut1 => "nomDeAttribut"						-> nom de l'attribut.
-  type => "type" 							-> type de cette attribut (SELON LA BASE DE DONNÉE CHOISI)
-  définition => "nom de l'attribut"					-> la signification du nom, autrement dit, le nom sans acronyme.
-  description => définition de se que cette attribut accomplie.		-> l'utilité de cette attribut, son associativité, des détails bon à savoir.
-  
-  attribut2 => "attributNA"
-  type => "type" 
-  définition => "attribut sans acronyme"
-  description => Une petite définition.
-  ... 
-  
 Table #1
   nom => "tbltest"
   définition => "table test"
