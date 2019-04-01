@@ -1,0 +1,35 @@
+Table #1
+  nom => "tbltest"
+  définition => "table test"
+  description => Cette table permet à enregistrer des tests des clients prises par le système embarqué. Un client peut avoir plusieurs tests
+  
+  attribut1 => "idClient"
+  type => "INT(11)"
+  définition => "identifiant d'un client"
+  description => Cette attribut est le clé étrangère de l'identifiant d'un client dans le table tblclient. Elle a pour effet de relier les
+                 deux tables ensembles.
+  
+  attribut2 => "datePriseTest"
+  type => "DATETIME" 
+  définition => "date de prise du test"
+  description => Cette attribut capture la date et le temps dont le test a été effectuer sur le client.
+  
+  attribut3 => "pressSys"
+  type => "INT(11)" 
+  définition => "pression systolique"
+  description => Cette attribut capture la pression systolique du client capturer par le système embarqué lors de la prise du test.
+  
+  attribut4 => "pressDia"
+  type => "INT(11)" 
+  définition => "pression diasystolique"
+  description => Cette attribut capture la pression diasystolique du client capturer par le système embarqué lors de la prise du test.
+  
+  attribut4 => "poulsCardiaque"
+  type => "INT(11)" 
+  définition => "pouls cardiaque"
+  description => Cette attribut capture le pouls cardiaque du client capturer par le système embarqué lors de la prise du test.
+
+Commande #1
+  SQL => DELETE FROM tbltest
+  description => Efface tout le contenu du tbltest.
+  utilisation => Utilisé seulement après que les données de la base de donnée système embarqué soit synchroniser avec la serveur.
