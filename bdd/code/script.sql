@@ -92,9 +92,10 @@ drop trigger if exists logincreation;
 	create trigger logincreation before insert on tblclient
 	for each row
 	BEGIN
+		set @ai = (SELECT AUTO_INCREMENT FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'bdd_biomedicale' AND TABLE_NAME = 'tblclient');
 		set
-		New.identifiant = CONCAT(LAST_INSERT_ID() + 1, NEW.nom),
-		New.passwd = NEW.dateDeNaissance;
+		New.identifiant = CONCAT(@ai, NEW.nom),
+		New.passwd = DATE(NEW.dateDeNaissance);
 	END;
 	|
 	delimiter ;
